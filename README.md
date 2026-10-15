@@ -1,4 +1,4 @@
-# Rupal's Coffee
+# Rupal's Coffee (Project)
 
 A scroll-driven cartoon storefront. Scrolling brews a cup of coffee on screen. **Buy now** opens a shop sheet backed by a small orders API, and placing an order plays a scooter delivery scene.
 
