@@ -1,0 +1,107 @@
+{
+  "measuredAt": "2026-10-15T05:49:40.301Z",
+  "runs": 3,
+  "lighthouse": "13.5.0",
+  "results": {
+    "mobile": {
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 1438,
+      "lcpMs": 2006,
+      "tbtMs": 40,
+      "cls": 0,
+      "speedIndexMs": 1438,
+      "transferKb": 165,
+      "allRuns": [
+        {
+          "performance": 98,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 1438,
+          "lcpMs": 2202,
+          "tbtMs": 64,
+          "cls": 0,
+          "speedIndexMs": 1438,
+          "transferKb": 165
+        },
+        {
+          "performance": 100,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 936,
+          "lcpMs": 1742,
+          "tbtMs": 40,
+          "cls": 0,
+          "speedIndexMs": 968,
+          "transferKb": 165
+        },
+        {
+          "performance": 99,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 1448,
+          "lcpMs": 2006,
+          "tbtMs": 12,
+          "cls": 0,
+          "speedIndexMs": 1448,
+          "transferKb": 165
+        }
+      ]
+    },
+    "desktop": {
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 100,
+      "fcpMs": 365,
+      "lcpMs": 509,
+      "tbtMs": 0,
+      "cls": 0,
+      "speedIndexMs": 401,
+      "transferKb": 165,
+      "allRuns": [
+        {
+          "performance": 100,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 365,
+          "lcpMs": 516,
+          "tbtMs": 0,
+          "cls": 0,
+          "speedIndexMs": 401,
+          "transferKb": 165
+        },
+        {
+          "performance": 100,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 388,
+          "lcpMs": 500,
+          "tbtMs": 0,
+          "cls": 0,
+          "speedIndexMs": 417,
+          "transferKb": 165
+        },
+        {
+          "performance": 100,
+          "accessibility": 100,
+          "bestPractices": 100,
+          "seo": 100,
+          "fcpMs": 362,
+          "lcpMs": 509,
+          "tbtMs": 0,
+          "cls": 0,
+          "speedIndexMs": 387,
+          "transferKb": 165
+        }
+      ]
+    }
+  }
+}

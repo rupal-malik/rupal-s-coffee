@@ -1,0 +1,5 @@
+[
+  { "sku": "RC-SIG-250", "name": "Signature Blend", "size": "250 g", "pricePaise": 49900, "blurb": "Our everyday blend, ground for drip brewers." },
+  { "sku": "RC-SIG-1000", "name": "Signature Blend", "size": "1 kg", "pricePaise": 169900, "blurb": "The big bag for busy mornings." },
+  { "sku": "RC-FIL-100", "name": "Paper filters", "size": "100 pack", "pricePaise": 24900, "blurb": "Cone filters that fit the basket in the story." }
+]

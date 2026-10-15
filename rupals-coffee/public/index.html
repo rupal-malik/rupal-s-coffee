@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rupal's Coffee</title>
+<meta name="description" content="Rupal's Coffee: watch a cup of Signature Blend brew as you scroll, then order a bag.">
+<meta name="theme-color" content="#f7cfae">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='18' fill='%23e0703a' stroke='%232b1810' stroke-width='3'/%3E%3Cpath d='M9 18h20v6a9 9 0 0 1-9 9h-2a9 9 0 0 1-9-9z' fill='%23fff3dc' stroke='%232b1810' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preload" href="fonts/lilita-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/nunito-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/story.css">
+<link rel="stylesheet" href="css/shop.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#story" aria-label="Rupal's Coffee, back to start" data-go="0">
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="#e0703a" stroke="#2b1810" stroke-width="3"/>
+      <path d="M9 18h20v6a9 9 0 0 1-9 9h-2a9 9 0 0 1-9-9z" fill="#fff3dc" stroke="#2b1810" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M29 20h2.5a3.5 3.5 0 0 1 0 7H28" fill="none" stroke="#2b1810" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M14 14c-2-2 2-3 0-5M20 14c-2-2 2-3 0-5M26 14c-2-2 2-3 0-5" fill="none" stroke="#2b1810" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span>Rupal's <i>Coffee</i></span>
+  </a>
+  <nav class="nav" aria-label="Story chapters">
+    <button type="button" data-go="0">Story</button>
+    <button type="button" data-go="1.2">Filter</button>
+    <button type="button" data-go="6.2">Brewing</button>
+    <button type="button" data-go="14.4">Ready</button>
+  </nav>
+  <a class="buy" href="#shop" data-open-shop>Buy now</a>
+</header>
+
+<main>
+<section id="story" aria-label="How Rupal's Coffee is brewed">
+ <div class="stage">
+
+  <!-- corner decoration -->
+  <svg id="leaves" viewBox="0 0 220 200" aria-hidden="true" style="position:absolute;right:-18px;top:-12px;width:clamp(130px,20vw,230px);z-index:1;pointer-events:none">
+    <g stroke="#2b1810" stroke-width="4" stroke-linejoin="round">
+      <path d="M220 20 C170 10 120 40 100 100 C160 100 205 70 220 20Z" fill="#b9c27d"/>
+      <path d="M220 90 C180 80 140 110 135 165 C190 160 215 130 220 90Z" fill="#a3ae68"/>
+    </g>
+    <path d="M214 28 C170 50 135 80 108 98" fill="none" stroke="#2b1810" stroke-width="3" stroke-linecap="round"/>
+    <use href="#bean" x="96" y="2" width="58" height="80" transform="rotate(24 125 42)"/>
+    <use href="#bean" x="150" y="96" width="44" height="62" transform="rotate(-30 172 127)"/>
+  </svg>
+
+  <div class="caption" id="caps" aria-live="polite">
+    <div class="card on" data-step="0"><span class="chip">Welcome</span><h1>Rupal's <i>Coffee</i></h1><p>Your cup comes together as you scroll. Keep going and we'll brew it for you.</p></div>
+    <div class="card" data-step="1"><span class="chip">Step 1 of 4</span><h2>Fold in a fresh filter</h2><p>A clean paper cone drops into the basket so every cup pours clear.</p></div>
+    <div class="card" data-step="2"><span class="chip">Step 2 of 4</span><h2>Add the signature blend</h2><p>Rupal's Signature Blend, ground fresh, tips into the filter.</p></div>
+    <div class="card" data-step="3"><span class="chip">Step 3 of 4</span><h2>Click. Then slow drip.</h2><p>The copper element heats the water and sends it over the grounds, drop by drop.</p></div>
+    <div class="card" data-step="4"><span class="chip">Step 4 of 4</span><h2>Pour yourself a cup</h2><p>The carafe tips, the mug fills, and the whole kitchen smells like morning.</p></div>
+    <div class="card" data-step="5"><span class="chip">Ready</span><h2>Your coffee is ready</h2><p>Hot, fresh and poured. Take a sip, then bring a bag of Rupal's home.</p><a class="buy" href="#shop" data-open-shop>Buy now</a></div>
+  </div>
+
+  <div class="meter" aria-hidden="true"><div class="bar"><b id="bar"></b></div><span id="meterTxt">Scroll to brew <i class="arrow">&darr;</i></span></div>
+
+  <svg id="art" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMax meet" role="img" aria-label="A cartoon kitchen where a drip coffee machine brews a cup of Rupal's Coffee as you scroll">
+   <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f2"/><stop offset="1" stop-color="#fde7c8"/></linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".5" r=".7"><stop offset="0" stop-color="#fff2a0"/><stop offset=".6" stop-color="#ffb23d"/><stop offset="1" stop-color="#ff7a1f"/></radialGradient>
+    <pattern id="tiles" width="44" height="44" patternUnits="userSpaceOnUse"><rect width="44" height="44" fill="#f4bd8f"/><path d="M0 0H44M0 0V44" stroke="#e5a577" stroke-width="3" fill="none"/></pattern>
+    <clipPath id="winClip"><rect x="600" y="60" width="200" height="190"/></clipPath>
+    <clipPath id="resClip"><rect x="90" y="102" width="108" height="156" rx="8"/></clipPath>
+    <clipPath id="carClip"><rect x="252" y="442" width="116" height="142" rx="16"/></clipPath>
+    <symbol id="bean" viewBox="-20 -28 40 56" overflow="visible"><ellipse rx="17" ry="25" fill="#7a4326" stroke="#2b1810" stroke-width="4"/><path d="M-2 -21C9 -8 -9 8 2 21" stroke="#2b1810" stroke-width="4" fill="none" stroke-linecap="round"/><ellipse cx="-8" cy="-9" rx="3" ry="8" fill="#b06f44" opacity=".8"/></symbol>
+    <g id="pouch-art">
+      <path d="M-44 -50H44L48 54Q0 64 -48 54Z" fill="#7a3e1f" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M-44 -62H44V-48H-44Z" fill="#a4592c" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M-44 -55H44" stroke="#2b1810" stroke-width="3" stroke-dasharray="3 5"/>
+      <ellipse cx="0" cy="2" rx="33" ry="38" fill="#fff3dc" stroke="#2b1810" stroke-width="4"/>
+      <use href="#bean" x="-9" y="-30" width="18" height="25"/>
+      <text x="0" y="12" text-anchor="middle" font-family="Lilita One,Arial Rounded MT Bold,sans-serif" font-size="17" fill="#e0703a" stroke="#2b1810" stroke-width="3" paint-order="stroke">RUPAL'S</text>
+      <text x="0" y="24" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="6.5" letter-spacing="1" fill="#2b1810">SIGNATURE</text>
+      <text x="0" y="33" text-anchor="middle" font-family="Nunito,sans-serif" font-weight="800" font-size="6.5" letter-spacing="1.6" fill="#2b1810">BLEND</text>
+    </g>
+   </defs>
+
+   <!-- ============ BACKDROP ============ -->
+   <g id="backdrop">
+    <rect x="-500" y="-40" width="2000" height="600" fill="none"/>
+    <rect x="-500" y="540" width="2000" height="92" fill="url(#tiles)"/>
+    <path d="M-500 540H1500" stroke="#2b1810" stroke-width="4"/>
+    <!-- hanging lamp -->
+    <path d="M520 -40V34" stroke="#2b1810" stroke-width="4"/>
+    <path d="M490 64Q490 38 520 36Q550 38 550 64Z" fill="#e0703a" stroke="#2b1810" stroke-width="4" stroke-linejoin="round"/>
+    <ellipse cx="520" cy="68" rx="9" ry="7" fill="#ffe58a" stroke="#2b1810" stroke-width="3"/>
+    <!-- window onto the village -->
+    <g clip-path="url(#winClip)">
+      <rect x="600" y="60" width="200" height="190" fill="url(#sky)"/>
+      <circle cx="768" cy="98" r="19" fill="#ffd45e" stroke="#2b1810" stroke-width="3.5"/>
+      <g class="cloud"><ellipse cx="660" cy="104" rx="26" ry="10" fill="#fff" stroke="#2b1810" stroke-width="3"/><ellipse cx="676" cy="96" rx="14" ry="9" fill="#fff" stroke="#2b1810" stroke-width="3"/><rect x="636" y="100" width="52" height="12" fill="#fff"/></g>
+      <path d="M600 186Q648 138 702 176T800 156V252H600Z" fill="#a9d79a" stroke="#2b1810" stroke-width="3.5"/>
+      <g stroke="#2b1810" stroke-width="3" stroke-linejoin="round">
+        <rect x="644" y="190" width="34" height="26" fill="#fff3dc"/><path d="M637 191L661 169L685 191Z" fill="#e0703a"/><rect x="656" y="200" width="9" height="16" fill="#7a4326"/>
+        <rect x="730" y="198" width="28" height="22" fill="#fff3dc"/><path d="M724 199L744 181L764 199Z" fill="#c9573a"/><rect x="740" y="207" width="8" height="13" fill="#7a4326"/>
+        <rect x="671" y="168" width="7" height="14" fill="#c9a07a"/>
+      </g>
+      <path d="M600 222Q690 172 800 216V252H600Z" fill="#7fba6e" stroke="#2b1810" stroke-width="3.5"/>
+      <path d="M690 252Q700 232 730 224" fill="none" stroke="#f5deb3" stroke-width="7" stroke-linecap="round"/>
+      <rect x="777" y="196" width="7" height="30" fill="#7a4326" stroke="#2b1810" stroke-width="3"/><circle cx="780" cy="186" r="18" fill="#4f9a5a" stroke="#2b1810" stroke-width="3.5"/>
+      <rect x="697" y="60" width="6" height="190" fill="#d98749" stroke="#2b1810" stroke-width="3"/>
+      <rect x="600" y="152" width="200" height="6" fill="#d98749" stroke="#2b1810" stroke-width="3"/>
+    </g>
+    <rect x="600" y="60" width="200" height="190" rx="4" fill="none" stroke="#2b1810" stroke-width="7"/>
+    <rect x="588" y="250" width="224" height="16" rx="4" fill="#eeaa6b" stroke="#2b1810" stroke-width="4"/>
+    <g transform="translate(622 250)"><path d="M-14 0L-10 -26H10L14 0Z" fill="#e0703a" stroke="#2b1810" stroke-width="3.5" stroke-linejoin="round"/><path d="M0 -26C-14 -40 -22 -58 -6 -64C0 -52 2 -40 0 -26ZM0 -26C14 -42 24 -52 22 -66C6 -60 -2 -44 0 -26Z" fill="#6fae5f" stroke="#2b1810" stroke-width="3" stroke-linejoin="round"/></g>
+    <!-- floating beans -->
+    <g id="beansBg">
+      <g class="bob"><use href="#bean" x="214" y="120" width="34" height="48" transform="rotate(28 231 144)"/></g>
+      <g class="bob2"><use href="#bean" x="858" y="318" width="40" height="56" transform="rotate(-24 878 346)"/></g>
+      <g class="bob2"><use href="#bean" x="150" y="400" width="44" height="62" transform="rotate(-40 172 431)"/></g>
+      <g class="bob"><use href="#bean" x="896" y="110" width="28" height="40" transform="rotate(50 910 130)"/></g>
+      <g class="bob"><use href="#bean" x="430" y="30" width="26" height="36" transform="rotate(-15 443 48)"/></g>
+    </g>
+    <!-- counter -->
+    <rect x="-500" y="628" width="2000" height="140" fill="#d98749"/>
+    <rect x="-500" y="628" width="2000" height="16" fill="#eeaa6b"/>
+    <path d="M-500 628H1500M-500 644H1500" stroke="#2b1810" stroke-width="4"/>
+    <path d="M-500 684H1500M-500 716H1500" stroke="#b86a35" stroke-width="4"/>
+    <path d="M60 644V684M330 684V716M640 644V684M910 684V716" stroke="#b86a35" stroke-width="4"/>
+   </g>
+
+   <!-- ============ MACHINE SCENE ============ -->
+   <g id="scene" transform="translate(175 0)">
+    <ellipse cx="245" cy="632" rx="200" ry="9" fill="#2b1810" opacity=".22"/>
+
+    <!-- column + copper cutaway -->
+    <rect x="106" y="256" width="74" height="338" rx="8" fill="#5cbcb7" stroke="#2b1810" stroke-width="5"/>
+    <rect x="118" y="298" width="50" height="226" rx="10" fill="#fff6e8" stroke="#2b1810" stroke-width="4"/>
+    <rect id="coilGlow" x="120" y="300" width="46" height="222" rx="8" fill="url(#glow)" opacity="0"/>
+    <path id="coilBack" fill="none" stroke="#2b1810" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <path id="coil" fill="none" stroke="#c8692b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M128 310V292M158 524V540" stroke="#2b1810" stroke-width="4" stroke-linecap="round"/>
+
+    <!-- reservoir -->
+    <rect x="88" y="100" width="112" height="160" rx="10" fill="#e4f5f9" stroke="#2b1810" stroke-width="5"/>
+    <g clip-path="url(#resClip)">
+      <rect id="water" x="90" y="112" width="108" height="146" fill="#7cc8ea"/>
+      <path id="wave" d="M90 112q13.5-8 27 0t27 0t27 0t27 0V122H90Z" fill="#a8defa"/>
+    </g>
+    <rect x="88" y="100" width="112" height="160" rx="10" fill="none" stroke="#2b1810" stroke-width="5"/>
+    <path d="M176 112V244" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+    <path d="M130 130h20M130 160h20M130 190h20M130 220h20" stroke="#2b1810" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+    <path d="M84 104V90Q84 82 92 82H196Q204 82 204 90V104Z" fill="#2e2523" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+
+    <!-- brew arm -->
+    <rect x="160" y="256" width="216" height="28" rx="13" fill="#5cbcb7" stroke="#2b1810" stroke-width="5"/>
+    <rect x="296" y="282" width="28" height="12" rx="3" fill="#2e2523" stroke="#2b1810" stroke-width="4"/>
+
+    <!-- funnel + filter -->
+    <ellipse cx="310" cy="304" rx="72" ry="11" fill="#1c1614" stroke="#2b1810" stroke-width="4"/>
+    <g id="paper">
+      <path d="M236 292Q260 282 285 292T335 292T384 292L324 372H296Z" fill="#f3dcb0" stroke="#2b1810" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M310 296V366M274 296L300 360M346 296L320 360" stroke="#d9b97f" stroke-width="3" stroke-linecap="round" fill="none"/>
+    </g>
+    <ellipse id="mound" cx="310" cy="304" rx="38" ry="12" fill="#4a2616" stroke="#2b1810" stroke-width="4"/>
+    <path d="M238 304Q310 326 382 304L340 384H280Z" fill="#2e2523" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M268 322L286 376M290 328L297 378M310 330V380M330 328L323 378M352 322L334 376" stroke="#ffffff" stroke-width="3" opacity=".22" stroke-linecap="round"/>
+    <path d="M378 308h26q10 0 10 10v2q0 10-10 10h-24" fill="#2e2523" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="298" y="382" width="24" height="14" rx="3" fill="#2e2523" stroke="#2b1810" stroke-width="4"/>
+
+    <!-- water drips from arm -->
+    <g id="drops" opacity="0">
+      <ellipse class="drip" cx="310" cy="296" rx="3.2" ry="4.6" fill="#7cc8ea" stroke="#2b1810" stroke-width="1.6"/>
+      <ellipse class="drip" cx="302" cy="296" rx="3.2" ry="4.6" fill="#7cc8ea" stroke="#2b1810" stroke-width="1.6"/>
+      <ellipse class="drip" cx="318" cy="296" rx="3.2" ry="4.6" fill="#7cc8ea" stroke="#2b1810" stroke-width="1.6"/>
+    </g>
+    <!-- coffee stream into carafe -->
+    <g id="stream" opacity="0"><line class="flow" x1="310" y1="398" x2="310" y2="448" stroke="#2b1810" stroke-width="8" stroke-linecap="round" stroke-dasharray="7 6"/><line class="flow" x1="310" y1="398" x2="310" y2="448" stroke="#6b3418" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 6"/></g>
+
+    <!-- base -->
+    <rect x="80" y="588" width="332" height="40" rx="11" fill="#5cbcb7" stroke="#2b1810" stroke-width="5"/>
+    <rect x="232" y="582" width="156" height="10" rx="5" fill="#2e2523" stroke="#2b1810" stroke-width="4"/>
+    <rect x="98" y="598" width="28" height="18" rx="5" fill="#d9442f" stroke="#2b1810" stroke-width="4"/>
+    <circle id="light" cx="150" cy="607" r="7" fill="#6b3a2a" stroke="#2b1810" stroke-width="3.5"/>
+    <text x="188" y="613" font-family="Lilita One,Arial Rounded MT Bold,sans-serif" font-size="12" letter-spacing="1.2" fill="#fff3dc" stroke="#2b1810" stroke-width="2.5" paint-order="stroke">RUPAL'S</text>
+
+    <!-- carafe -->
+    <g id="carafe">
+      <path d="M254 462h-14q-14 0-14 18v44q0 18 14 18h14" fill="none" stroke="#2b1810" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M254 462h-14q-14 0-14 18v44q0 18 14 18h14" fill="none" stroke="#2e2523" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="252" y="442" width="116" height="142" rx="16" fill="#e4f5f9" stroke="none"/>
+      <g clip-path="url(#carClip)"><rect id="carLiquid" x="250" y="584" width="120" height="0" fill="#6b3418"/><path id="carLiquidTop" d="M250 584h120" stroke="#8b4a26" stroke-width="5" opacity="0"/></g>
+      <path d="M268 458V560" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+      <rect x="252" y="442" width="116" height="142" rx="16" fill="none" stroke="#2b1810" stroke-width="5"/>
+      <path d="M244 444V432Q244 426 250 426H370Q376 426 376 432V444Z" fill="#2e2523" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M372 428l14-6q4 10-6 20" fill="#2e2523" stroke="#2b1810" stroke-width="4" stroke-linejoin="round"/>
+      <rect x="296" y="418" width="28" height="10" rx="4" fill="#2e2523" stroke="#2b1810" stroke-width="4"/>
+    </g>
+
+    <!-- mug -->
+    <g id="mug">
+      <path d="M556 574h12q20 0 20 22t-20 22h-12" fill="none" stroke="#2b1810" stroke-width="6" stroke-linecap="round"/>
+      <path d="M478 560H556V602Q556 628 530 628H504Q478 628 478 602Z" fill="#fff3dc" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+      <ellipse cx="517" cy="560" rx="39" ry="9" fill="#e9cfa4" stroke="#2b1810" stroke-width="5"/>
+      <ellipse id="mugCoffee" cx="517" cy="561" rx="33" ry="6" fill="#5a2d17" opacity="0"/>
+      <circle cx="517" cy="598" r="13" fill="#e0703a" stroke="#2b1810" stroke-width="3.5"/>
+      <path d="M512 604q-4-8 0-12q8-2 9 3q0 5-6 5M517 604l4 4" fill="none" stroke="#fff3dc" stroke-width="2.6" stroke-linecap="round"/>
+    </g>
+    <path id="pourStream" d="M511 484H517V560H511Z" fill="#5a2d17" stroke="#2b1810" stroke-width="3" opacity="0"/>
+    <g id="mugSteam" opacity="0" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round">
+      <path class="wisp" d="M500 548c-9-10 9-14 0-26" /><path class="wisp" d="M517 548c-9-10 9-14 0-26"/><path class="wisp" d="M534 548c-9-10 9-14 0-26"/>
+    </g>
+
+    <!-- hot steam off the funnel -->
+    <g id="hotsteam" opacity="0" fill="#fff" stroke="#2b1810" stroke-width="2.4">
+      <circle class="rise" cx="282" cy="262" r="6"/><circle class="rise" cx="304" cy="258" r="8"/><circle class="rise" cx="330" cy="262" r="5"/><circle class="rise" cx="350" cy="260" r="7"/>
+    </g>
+
+    <!-- bag of beans -->
+    <g transform="translate(470 410)"><g class="bob2"><g id="pouch"><use href="#pouch-art"/></g></g></g>
+    <g id="grounds" fill="#5a2d17" stroke="#2b1810" stroke-width="2">
+      <circle cx="302" cy="262" r="4"/><circle cx="310" cy="258" r="5"/><circle cx="318" cy="263" r="4"/><circle cx="306" cy="266" r="3.5"/>
+      <circle cx="314" cy="268" r="4"/><circle cx="298" cy="264" r="3.5"/><circle cx="322" cy="260" r="3.5"/><circle cx="310" cy="264" r="4.5"/>
+    </g>
+
+    <!-- click! -->
+    <g transform="translate(98 520) rotate(-12)"><g id="click" opacity="0"><text class="sfx" text-anchor="end" font-size="32" fill="#ffd24a" stroke="#2b1810" stroke-width="6" paint-order="stroke" stroke-linejoin="round">CLICK!</text></g></g>
+
+    <!-- ready badge -->
+    <g transform="translate(515 438)"><g id="badge"><polygon id="burst" fill="#ffd24a" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/><text class="sfx" y="12" text-anchor="middle" font-size="34" fill="#e0703a" stroke="#2b1810" stroke-width="5" paint-order="stroke" stroke-linejoin="round" transform="rotate(-6)">READY!</text></g></g>
+    <g id="confetti" transform="translate(515 438)">
+      <use class="conf" href="#bean" x="-13" y="-18" width="26" height="36" opacity="0"/><use class="conf" href="#bean" x="-13" y="-18" width="22" height="31" opacity="0"/><use class="conf" href="#bean" x="-13" y="-18" width="26" height="36" opacity="0"/>
+      <use class="conf" href="#bean" x="-13" y="-18" width="20" height="28" opacity="0"/><use class="conf" href="#bean" x="-13" y="-18" width="24" height="34" opacity="0"/><use class="conf" href="#bean" x="-13" y="-18" width="22" height="31" opacity="0"/>
+    </g>
+   </g>
+  </svg>
+ </div>
+</section>
+
+<section id="shop">
+  <div class="shop-in">
+    <div>
+      <h2>Take the morning home</h2>
+      <p>Rupal's Signature Blend, ready to brew in your own kitchen.</p>
+      <a class="buy" href="#shop" data-open-shop>Buy now</a>
+    </div>
+    <div class="shop-bag"><svg viewBox="-70 -80 140 150" role="img" aria-label="A bag of Rupal's Signature Blend"><use href="#pouch-art"/></svg></div>
+  </div>
+  <div class="fine"><span>Rupal's Coffee</span><span>&copy; 2026</span></div>
+</section>
+</main>
+
+<dialog id="shopDialog" class="sheet" aria-labelledby="shopTitle">
+  <form id="checkoutForm" autocomplete="on">
+    <header class="sheet-head">
+      <h2 id="shopTitle">Order Rupal's Coffee</h2>
+      <button type="button" class="x" data-close aria-label="Close shop">&times;</button>
+    </header>
+    <div class="sheet-body">
+      <p id="demoNote" class="note" hidden>Demo mode: this page has no server, so nothing is saved or charged. Run the project to use the real orders API.</p>
+      <fieldset class="products" id="productList"><legend>Pick your coffee</legend></fieldset>
+      <fieldset class="details">
+        <legend>Delivery details</legend>
+        <label for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
+        <label for="f-phone">Phone</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" required pattern="\+?[0-9 \(\)\-]{7,16}" title="7 to 16 digits, spaces or dashes" inputmode="tel">
+        <label for="f-address">Address</label>
+        <textarea id="f-address" name="address" rows="3" autocomplete="street-address" required minlength="8" maxlength="300"></textarea>
+      </fieldset>
+      <fieldset class="pay">
+        <legend>Payment</legend>
+        <label class="radio"><input type="radio" name="payment" value="cod" checked> <span>Cash on delivery</span></label>
+        <label class="radio"><input type="radio" name="payment" value="online_test"> <span>Pay online <small>(test mode, no real charge)</small></span></label>
+      </fieldset>
+      <div class="summary" id="summary" aria-live="polite"></div>
+      <p class="error" id="formError" role="alert"></p>
+    </div>
+    <footer class="sheet-foot"><button type="submit" class="buy wide" id="placeBtn" disabled>Place order</button></footer>
+  </form>
+</dialog>
+
+<div id="delivery" class="delivery" hidden role="dialog" aria-modal="true" aria-labelledby="delTitle" data-state="idle">
+  <div class="del-top">
+    <ol class="track" id="track" aria-label="Delivery progress"><li>Confirmed</li><li>Picked up</li><li>On the way</li><li>Delivered</li></ol>
+    <button type="button" class="skip" id="delSkip">Skip</button>
+  </div>
+  <p class="sr" id="delLive" aria-live="polite"></p>
+  <div class="del-ground"></div>
+  <div class="del-stage">
+    <svg id="delSvg" viewBox="0 0 800 450" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+      <defs><linearGradient id="dSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bfe6f2"/><stop offset="1" stop-color="#fde7c8"/></linearGradient></defs>
+      <rect x="-900" y="-400" width="2600" height="732" fill="url(#dSky)"/>
+      <circle cx="640" cy="82" r="34" fill="#ffd45e" stroke="#2b1810" stroke-width="4"/>
+      <g id="dClouds" fill="#fff" stroke="#2b1810" stroke-width="3.5">
+        <g><ellipse cx="120" cy="80" rx="46" ry="16"/><ellipse cx="148" cy="66" rx="24" ry="15"/><rect x="76" y="76" width="90" height="20" fill="#fff" stroke="none"/></g>
+        <g><ellipse cx="420" cy="48" rx="38" ry="13"/><ellipse cx="440" cy="37" rx="19" ry="12"/><rect x="384" y="44" width="72" height="16" fill="#fff" stroke="none"/></g>
+      </g>
+      <g id="dFar"></g><g id="dMid"></g><g id="dNear"></g>
+      <rect x="-900" y="322" width="2600" height="24" fill="#ecd0a8" stroke="#2b1810" stroke-width="4"/>
+      <rect x="-900" y="346" width="2600" height="400" fill="#5d4a43"/>
+      <path d="M-900 346H1700" stroke="#2b1810" stroke-width="5"/>
+      <line id="dDash" x1="-900" y1="410" x2="1700" y2="410" stroke="#fff3dc" stroke-width="7" stroke-dasharray="34 26" stroke-linecap="round"/>
+
+      <!-- destination house; local origin is its left edge on the pavement -->
+      <g transform="translate(0 322)"><g id="dHouse">
+        <path d="M-6 0V-30M-6 -30h16" stroke="#2b1810" stroke-width="5" fill="none"/><rect x="-14" y="-52" width="26" height="22" rx="4" fill="#5cbcb7" stroke="#2b1810" stroke-width="4"/>
+        <rect x="0" y="-132" width="190" height="132" fill="#fff3dc" stroke="#2b1810" stroke-width="5"/>
+        <rect x="140" y="-206" width="22" height="50" fill="#c9a07a" stroke="#2b1810" stroke-width="4"/>
+        <polygon points="-14,-132 95,-208 204,-132" fill="#e0703a" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+        <rect x="18" y="-102" width="44" height="40" fill="#bfe6f2" stroke="#2b1810" stroke-width="4"/><path d="M40 -102V-62M18 -82H62" stroke="#2b1810" stroke-width="3"/>
+        <rect x="128" y="-102" width="44" height="40" fill="#bfe6f2" stroke="#2b1810" stroke-width="4"/><path d="M150 -102V-62M128 -82H172" stroke="#2b1810" stroke-width="3"/>
+        <rect x="74" y="-86" width="42" height="86" fill="#3b2a24" stroke="#2b1810" stroke-width="4"/>
+        <g id="dCust"><circle cx="95" cy="-62" r="11" fill="#f2b88a" stroke="#2b1810" stroke-width="3"/><path d="M84 -64Q84 -76 95 -76Q106 -76 106 -64Q100 -70 95 -69Q90 -70 84 -64Z" fill="#2b1810"/><path d="M84 0L86 -48Q95 -52 104 -48L106 0Z" fill="#8a6fd1" stroke="#2b1810" stroke-width="3.5" stroke-linejoin="round"/><g id="dWave"><path d="M104 -44L120 -64" fill="none" stroke="#2b1810" stroke-width="10" stroke-linecap="round"/><path d="M104 -44L120 -64" fill="none" stroke="#8a6fd1" stroke-width="5" stroke-linecap="round"/><circle cx="121" cy="-66" r="5" fill="#f2b88a" stroke="#2b1810" stroke-width="2.5"/></g></g>
+        <g id="dDoor"><rect x="74" y="-86" width="42" height="86" fill="#7a4326" stroke="#2b1810" stroke-width="4"/><rect x="82" y="-76" width="26" height="30" fill="none" stroke="#2b1810" stroke-width="3" opacity=".5"/><circle cx="108" cy="-42" r="3.5" fill="#ffd45e" stroke="#2b1810" stroke-width="2"/></g>
+        <rect x="68" y="-5" width="54" height="7" rx="2" fill="#e0703a" stroke="#2b1810" stroke-width="3"/>
+        <g transform="translate(160 0)"><path d="M-12 0L-9 -22H9L12 0Z" fill="#e0703a" stroke="#2b1810" stroke-width="3" stroke-linejoin="round"/><path d="M0 -22C-12 -36 -16 -46 -4 -50C0 -42 2 -32 0 -22ZM0 -22C12 -36 18 -44 14 -52C2 -46 -2 -34 0 -22Z" fill="#6fae5f" stroke="#2b1810" stroke-width="2.5" stroke-linejoin="round"/></g>
+      </g></g>
+
+      <!-- scooter; local origin is the ground between the wheels -->
+      <g transform="translate(0 372)"><g id="dScooter"><g id="dTilt">
+        <ellipse cx="0" cy="3" rx="122" ry="7" fill="#2b1810" opacity=".25"/>
+        <g id="dSpeed" opacity="0" stroke="#fff3dc" stroke-width="5" stroke-linecap="round"><line class="sl" x1="-150" y1="-104" x2="-214" y2="-104"/><line class="sl" x1="-132" y1="-72" x2="-206" y2="-72"/><line class="sl" x1="-150" y1="-132" x2="-196" y2="-132"/></g>
+        <g class="ride-bob">
+          <g class="wheel"><circle cx="-72" cy="-24" r="24" fill="#3a2e2a" stroke="#2b1810" stroke-width="5"/><circle cx="-72" cy="-24" r="12" fill="#fff3dc" stroke="#2b1810" stroke-width="3.5"/><path d="M-72 -34V-14M-82 -24H-62" stroke="#2b1810" stroke-width="3"/><circle cx="-72" cy="-24" r="3.5" fill="#e0703a"/></g>
+          <g class="wheel"><circle cx="72" cy="-24" r="24" fill="#3a2e2a" stroke="#2b1810" stroke-width="5"/><circle cx="72" cy="-24" r="12" fill="#fff3dc" stroke="#2b1810" stroke-width="3.5"/><path d="M72 -34V-14M62 -24H82" stroke="#2b1810" stroke-width="3"/><circle cx="72" cy="-24" r="3.5" fill="#e0703a"/></g>
+          <line x1="58" y1="-104" x2="72" y2="-26" stroke="#2b1810" stroke-width="10" stroke-linecap="round"/><line x1="58" y1="-104" x2="72" y2="-26" stroke="#cfd8dc" stroke-width="4" stroke-linecap="round"/>
+          <path d="M-102 -32Q-108 -80 -66 -84L-28 -84Q-14 -84 -10 -70L-4 -38Z" fill="#5cbcb7" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+          <rect x="-6" y="-38" width="58" height="10" rx="4" fill="#3a8f8f" stroke="#2b1810" stroke-width="4"/>
+          <path d="M36 -34L52 -34Q66 -76 62 -116L46 -116Q40 -72 36 -34Z" fill="#5cbcb7" stroke="#2b1810" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M48 -36Q72 -68 96 -36" fill="none" stroke="#2b1810" stroke-width="10" stroke-linecap="round"/><path d="M48 -36Q72 -68 96 -36" fill="none" stroke="#5cbcb7" stroke-width="4" stroke-linecap="round"/>
+          <path d="M70 -108L136 -128L136 -88Z" fill="#fff3a0" opacity=".4"/><circle cx="66" cy="-106" r="8" fill="#ffe58a" stroke="#2b1810" stroke-width="3.5"/>
+          <path d="M-34 -86L-2 -66L16 -34" fill="none" stroke="#2b1810" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M-34 -86L-2 -66L16 -34" fill="none" stroke="#3c4a6b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <ellipse cx="22" cy="-31" rx="12" ry="6" fill="#2e2523" stroke="#2b1810" stroke-width="3"/>
+          <rect x="-62" y="-94" width="52" height="12" rx="6" fill="#2e2523" stroke="#2b1810" stroke-width="4"/>
+          <g id="dPeek"><use href="#pouch-art" transform="translate(-84 -150) scale(.4)"/></g>
+          <rect x="-114" y="-142" width="60" height="52" rx="8" fill="#e0703a" stroke="#2b1810" stroke-width="5"/><path d="M-114 -126H-54" stroke="#2b1810" stroke-width="3.5"/>
+          <circle cx="-84" cy="-107" r="13" fill="#fff3dc" stroke="#2b1810" stroke-width="3.5"/><text x="-84" y="-101" text-anchor="middle" font-family="Lilita One,Arial Rounded MT Bold,sans-serif" font-size="18" fill="#e0703a" stroke="#2b1810" stroke-width="2" paint-order="stroke">R</text>
+          <path d="M-46 -90L-38 -150Q-28 -166 -12 -158L-2 -124L-14 -90Z" fill="#f2b134" stroke="#2b1810" stroke-width="4.5" stroke-linejoin="round"/>
+          <path d="M52 -116L50 -140L40 -146" fill="none" stroke="#2b1810" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M52 -116L50 -140L40 -146" fill="none" stroke="#2e2523" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <g id="dArm"><path d="M-10 -142L20 -120L46 -138" fill="none" stroke="#2b1810" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M-10 -142L20 -120L46 -138" fill="none" stroke="#f2b134" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="46" cy="-138" r="6.5" fill="#f2b88a" stroke="#2b1810" stroke-width="3"/></g>
+          <g class="scarf"><path d="M-24 -152q-16 -4 -28 6q-12 10 -26 4" fill="none" stroke="#2b1810" stroke-width="12" stroke-linecap="round"/><path d="M-24 -152q-16 -4 -28 6q-12 10 -26 4" fill="none" stroke="#fff3dc" stroke-width="6" stroke-linecap="round"/></g>
+          <circle cx="-8" cy="-166" r="12" fill="#f2b88a" stroke="#2b1810" stroke-width="3.5"/><circle cx="1" cy="-164" r="2" fill="#2b1810"/>
+          <path d="M-30 -168A22 22 0 0 1 14 -168L8 -166L-26 -166Z" fill="#e0703a" stroke="#2b1810" stroke-width="4.5" stroke-linejoin="round"/><path d="M0 -170L14 -168L12 -163L-1 -164Z" fill="#fff3dc" stroke="#2b1810" stroke-width="3" stroke-linejoin="round"/>
+        </g>
+      </g></g></g>
+
+      <g transform="translate(346 256)"><g id="dBag" opacity="0"><use href="#pouch-art" transform="scale(.42)"/></g></g>
+      <g id="dHearts" fill="#e0573a" stroke="#2b1810" stroke-width="2.5" stroke-linejoin="round">
+        <g transform="translate(588 236)"><path class="h" d="M0 8C-16-4-12-18 0-10C12-18 16-4 0 8Z"/></g>
+        <g transform="translate(620 214)"><path class="h" d="M0 8C-16-4-12-18 0-10C12-18 16-4 0 8Z"/></g>
+        <g transform="translate(648 244)"><path class="h" d="M0 8C-16-4-12-18 0-10C12-18 16-4 0 8Z"/></g>
+      </g>
+    </svg>
+  </div>
+  <div class="del-card" role="status">
+    <span class="chip">Order confirmed</span>
+    <h2 id="delTitle">Your coffee is on its way</h2>
+    <p id="delMsg"></p>
+    <button type="button" class="buy" id="delDone">Back to the story</button>
+  </div>
+</div>
+
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/rig.js" defer></script>
+<script src="js/api.js" defer></script>
+<script src="js/story.js" defer></script>
+<script src="js/delivery.js" defer></script>
+<script src="js/shop.js" defer></script>
+</body>
+</html>

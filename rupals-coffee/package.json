@@ -1,0 +1,35 @@
+{
+  "name": "rupals-coffee",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scroll-driven cartoon storefront for Rupal's Coffee with an orders API.",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test --no-warnings tests/api.test.js",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots",
+    "lighthouse": "node scripts/lighthouse.js",
+    "build:artifact": "node scripts/build-artifact.js"
+  },
+  "dependencies": {
+    "compression": "^1.8.2",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@fontsource/bangers": "^5.3.0",
+    "@fontsource/lilita-one": "^5.3.0",
+    "@fontsource/nunito": "^5.3.0",
+    "@playwright/test": "^1.64.1",
+    "chrome-launcher": "^1.2.2",
+    "gsap": "^3.12.2",
+    "lighthouse": "^13.5.0"
+  }
+}

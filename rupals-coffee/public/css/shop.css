@@ -1,0 +1,76 @@
+/* ---------- shared bits ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.buy.wide{display:block;width:100%;text-align:center;font-size:15px;padding:15px 18px;cursor:pointer;font-family:var(--font-body)}
+.buy:disabled{opacity:.55;cursor:not-allowed;box-shadow:3px 3px 0 var(--ink)}
+button.buy{cursor:pointer;font-family:var(--font-body)}
+
+/* ---------- shop sheet ---------- */
+dialog.sheet{border:4px solid var(--ink);border-radius:22px;background:var(--cream);color:var(--ink);padding:0;width:min(540px,calc(100vw - 24px));max-height:calc(100dvh - 24px);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
+dialog.sheet[open]{display:flex}
+dialog.sheet::backdrop{background:rgba(43,24,16,.6)}
+#checkoutForm{display:flex;flex-direction:column;min-height:0;width:100%}
+.sheet-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px 12px 20px;border-bottom:4px solid var(--ink);background:var(--wall)}
+.sheet-head h2{font-family:var(--font-display);font-weight:400;font-size:26px;line-height:1.1;margin:0}
+.x{width:40px;height:40px;flex:none;border:3px solid var(--ink);border-radius:12px;background:var(--cream);font:800 24px/1 var(--font-body);cursor:pointer;color:var(--ink)}
+.sheet-body{overflow:auto;padding:16px 20px;display:flex;flex-direction:column;gap:16px;min-height:0}
+.sheet-foot{padding:14px 20px calc(16px + env(safe-area-inset-bottom,0px));border-top:4px solid var(--ink);background:var(--wall)}
+fieldset{border:0;margin:0;padding:0;min-width:0;display:flex;flex-direction:column;gap:8px}
+legend{font:800 12px/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--coffee);padding:0;margin-bottom:8px}
+.note{margin:0;padding:10px 12px;border:3px dashed var(--ink);border-radius:12px;background:#fff;font-weight:700;font-size:13.5px}
+.prow{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:6px 12px;padding:10px 12px;border:3px solid var(--ink);border-radius:14px;background:#fff}
+.pinfo{display:flex;flex-direction:column;min-width:0}
+.pinfo strong{font-size:15px}
+.psize{font-weight:700;color:var(--accent-deep)}
+.pblurb{font-size:12.5px;font-weight:600;color:#6b4a3a}
+.pprice{font-weight:800;font-variant-numeric:tabular-nums}
+.step{display:flex;align-items:center;gap:6px}
+.stepbtn{width:34px;height:34px;border:3px solid var(--ink);border-radius:10px;background:var(--wall);font:800 18px/1 var(--font-body);cursor:pointer;color:var(--ink)}
+.stepbtn:active{transform:translateY(1px)}
+.stepval{min-width:26px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+@media (max-width:440px){.prow{grid-template-columns:1fr auto}.step{grid-column:1/-1;justify-content:flex-end}}
+.details label,.pay .radio{font-weight:800;font-size:13px}
+input[type=text],input[type=tel],textarea{width:100%;font:600 16px/1.3 var(--font-body);color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:12px;padding:10px 12px}
+textarea{resize:vertical;min-height:76px}
+input:invalid:not(:placeholder-shown):not(:focus){border-color:#b3321b}
+.radio{display:flex;align-items:center;gap:10px;padding:10px 12px;border:3px solid var(--ink);border-radius:12px;background:#fff;cursor:pointer}
+.radio input{width:20px;height:20px;accent-color:var(--terracotta);flex:none}
+.radio small{font-weight:600;color:#6b4a3a}
+.summary{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:3px solid var(--ink);border-radius:14px;background:var(--wall)}
+.srow{display:flex;justify-content:space-between;font-weight:700;font-variant-numeric:tabular-nums}
+.stotal{font-weight:800;font-size:18px;border-top:3px solid var(--ink);padding-top:6px;margin-top:2px}
+.shint{margin:2px 0 0;font-size:12.5px;font-weight:700;color:#6b4a3a}
+.error{margin:0;min-height:0;color:#9c2a14;font-weight:800;font-size:14px}
+.error:empty{display:none}
+
+/* ---------- delivery scene ---------- */
+.delivery{--card-room:clamp(210px,30vh,260px);position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;background:#bfe6f2;overflow:hidden}
+.delivery[hidden]{display:none}
+.del-top{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) var(--gutter-r) 8px var(--gutter-l)}
+.track{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.track li{font:800 11px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border:3px solid var(--ink);border-radius:999px;background:var(--cream);opacity:.6}
+.track li.on{background:var(--accent-deep);color:#fff;opacity:1;text-shadow:1px 1px 0 var(--ink)}
+.track li.past{opacity:1;background:var(--wall)}
+.skip{font:800 12px/1 var(--font-body);letter-spacing:.08em;text-transform:uppercase;border:3px solid var(--ink);border-radius:12px;background:var(--cream);padding:10px 14px;box-shadow:3px 3px 0 var(--ink);cursor:pointer;color:var(--ink);flex:none}
+.del-ground{position:absolute;left:0;right:0;bottom:0;height:var(--card-room);background:#5d4a43}
+.del-stage{position:relative;z-index:1;flex:1;min-height:0;margin-bottom:var(--card-room)}
+#delSvg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+.del-card{position:absolute;z-index:3;left:var(--gutter-l);right:var(--gutter-r);bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:520px;margin:0 auto;background:var(--cream);border:4px solid var(--ink);border-radius:22px;box-shadow:6px 6px 0 var(--ink);padding:14px 18px 16px;opacity:0;transform:translateY(18px);pointer-events:none;transition:opacity .35s,transform .35s}
+.delivery[data-state=done] .del-card{opacity:1;transform:none;pointer-events:auto}
+.del-card h2{font-family:var(--font-display);font-weight:400;font-size:clamp(24px,5vw,32px);line-height:1.08;margin:0 0 6px}
+.del-card p{margin:0 0 12px;font-weight:700;font-size:14.5px;color:#5b3a2a}
+.del-card .buy{display:inline-block;font-size:13px;padding:12px 18px}
+.delivery[data-state=done] .skip{visibility:hidden}
+
+.wheel{transform-box:fill-box;transform-origin:center;animation:spin .45s linear infinite}
+.ride-bob{animation:ridebob .3s ease-in-out infinite alternate}
+.sl{animation:slide .35s linear infinite}
+.scarf{transform-box:fill-box;transform-origin:100% 50%;animation:flutter .3s ease-in-out infinite alternate}
+#dWave{transform-box:fill-box;transform-origin:0% 100%;animation:wave .45s ease-in-out infinite alternate}
+.delivery.is-stopped .wheel,.delivery.is-stopped .ride-bob,.delivery.is-stopped .sl,.delivery.is-stopped .scarf{animation-play-state:paused}
+.h{opacity:0}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ridebob{to{transform:translateY(-2.5px)}}
+@keyframes slide{from{transform:translateX(22px);opacity:0}30%{opacity:1}to{transform:translateX(-22px);opacity:0}}
+@keyframes flutter{to{transform:translateY(-5px) scaleX(.9)}}
+@keyframes wave{to{transform:rotate(-22deg)}}
+@media (prefers-reduced-motion:reduce){.wheel,.ride-bob,.sl,.scarf,#dWave{animation:none}}
