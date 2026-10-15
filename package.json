@@ -14,7 +14,8 @@
     "test:visual": "playwright test",
     "test:visual:update": "playwright test --update-snapshots",
     "lighthouse": "node scripts/lighthouse.js",
-    "build:artifact": "node scripts/build-artifact.js"
+    "build:artifact": "node scripts/build-artifact.js",
+    "build:pages": "node scripts/build-pages.js"
   },
   "dependencies": {
     "compression": "^1.8.2",

@@ -9,6 +9,7 @@ npm test             # API tests (node:test)
 npm run test:visual  # Playwright screenshot tests, desktop + mobile
 npm run lighthouse   # Lighthouse, 3 runs each for mobile and desktop
 npm run build:artifact  # single-file demo build in dist/
+npm run build:pages     # static demo site in dist/pages (used by the Pages deploy)
 ```
 
 Requires Node 22.5 or newer (the database is Node's built-in `node:sqlite`, which is still marked experimental).
@@ -68,6 +69,16 @@ LCP, TBT (the lab stand-in for INP) and CLS are all inside the "good" thresholds
 ## Demo build
 
 `npm run build:artifact` produces one HTML file with the CSS and JS inlined, GSAP and fonts loaded from CDNs, and the shop in **demo mode**: orders are created in memory and nothing is saved. A host that cannot run a server can show everything except the real API.
+
+## CI and deploy
+
+`.github/workflows/ci-deploy.yml` has three jobs:
+
+- **test** runs the API tests on every push and pull request.
+- **visual** runs the Playwright screenshot tests. It does not block the deploy. Baselines come from one Chromium build, so the first run on GitHub may show small rendering differences. If it does, run the workflow manually with "Regenerate the visual baselines" ticked, download the `visual-baselines` artifact, and commit it.
+- **deploy** (pushes to `main` only, after `test` passes) runs `npm run build:pages` and publishes `dist/pages` to GitHub Pages. That is the demo-mode site, so orders there are not saved. One-time setup: Settings > Pages > Source = "GitHub Actions".
+
+The real API needs a host that runs Node (Render, Fly.io, Railway or a VPS); GitHub Pages cannot run it.
 
 ## What this is not
 
